@@ -2,6 +2,7 @@ import { paste } from '@testing-library/user-event/dist/paste';
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import Card from '../assets/Card'
+import { AiFillStar } from 'react-icons/ai'
 
 const Detail = () => {
     // return (
@@ -66,6 +67,7 @@ const Detail = () => {
             <>
                 <div className='show-detail'>
                     {/* <img src={product.cover} alt={product.title} /> */}
+
                 </div>
             </>
         )
@@ -73,7 +75,52 @@ const Detail = () => {
 
     const Show = (<>
         <div className='show-detail'>
-            {/* <img src={product.cover} alt={product.title} /> */}
+            <div className="card-detail">
+                <div className="detail-img">
+                    <img src={product.cover} alt="" />
+                </div>
+                <div className='detail-list'>
+                    <div className="product-title">
+                        <p>{product.desc}</p>
+                        <div className="card-rate">
+                            <AiFillStar className='icon-star' />
+                            <p>{product.rate}</p>
+                        </div>
+                    </div>
+                    <div className='card-info'>
+                        <p className='product-price'>{product.price}</p>
+                        <hr />
+                        <div className='card-category'>
+                            <h3>Categories: <span className='span-title'>{product.title}</span></h3>
+                            <div>
+                                <p>Lorem ipsum dolor sit amet consectetur. Enim vulputate ac sagittis ultricies. Vitae et viverra nisl egestas amet eget non donec varius. Nisl blandit varius ac congue neque. Dolor molestie platea nunc sagittis aenean. Cras eget diam id eu in platea. Sagittis libero aliquet tortor mauris proin dictum egestas ornare. Ornare neque nam venenatis pellentesque sed massa facilisis tempor. Tellus ultricies nam vitae nunc facilisis cursus egestas. Sit aliquet eros mauris quis mauris congue.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className='count-container'>
+                    <div className='total'>
+                        <h3>Count</h3>
+                        <div className='count'>
+                            <button>-</button>
+                            <input type="text" value='0' className='value' />
+                            <button>+</button>
+                        </div>
+                    </div>
+                    <div className='total'>
+                        <h3>Subtotal</h3>
+                        <p>{product.price}</p>
+                    </div>
+                    <div className='cart'>
+                        <button>+ Add to Cart</button>
+                    </div>
+                    <div className='buy'>
+                        <button>Buy</button>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </>)
 

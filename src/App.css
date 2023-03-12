@@ -9,11 +9,15 @@
     }
 
     img{
-    @apply lg:w-screen;
+    @apply w-screen;
 }
 
     h1 {
         @apply font-bold text-xl;
+    }
+
+    span{
+        @apply text-sm text-dark-blue cursor-pointer;
     }
 
     /* Footer*/
@@ -36,11 +40,11 @@
         @apply text-xl font-bold text-dark-blue;
     }
     .nav-href{
-        @apply text-lg font-semibold text-dark-blue;
+        @apply text-lg font-semibold text-dark-blue cursor-pointer;
     }
 
     .nav {
-        @apply bg-white z-50 lg:ml-0 lg:z-0 flex  flex-col absolute w-screen lg:w-auto lg:items-center justify-center lg:pt-0 lg:relative lg:flex-row lg:gap-7 left-0 top-8 lg:top-0 ;
+        @apply bg-white z-50 lg:ml-0 lg:z-0 flex cursor-pointer flex-col absolute w-screen lg:w-auto lg:items-center justify-center lg:pt-0 lg:relative lg:flex-row lg:gap-7 left-0 top-8 lg:top-0 ;
     }
 
     .icon-bars {
@@ -55,12 +59,91 @@
         @apply text-gray-border pl-0;
     }
 
-
     .logo-img{
         @apply flex pt-24 gap-10 lg:px-8 lg:rounded-3xl;
-
     }
 
+    .dropdown{
+        @apply absolute bg-white top-12 w-24 p-5 shadow-lg;
+    }
+
+    .nav-drop{
+        @apply mb-5
+    }
+
+    /* Login */
+    .overlay{
+        @apply bg-black fixed opacity-50 top-0 bottom-0 left-0 right-0 z-10
+    }
+
+    .modal{
+        @apply px-8 py-24 bg-white w-96 fixed z-20 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+    }
+
+    .modal-container{
+        @apply flex gap-10 flex-col;
+    }
+
+    .modal-header{
+        @apply flex justify-between items-center;
+    }
+
+    .modal-title{
+        @apply text-3xl font-bold text-center ;
+    }
+
+    .cancel{
+        @apply absolute right-8 top-8 text-2xl
+    }
+
+    .modal-input{
+        @apply text-xl font-bold text-light-gray;
+    }
+
+    .input{
+        @apply border border-light-gray rounded-md px-4 py-2 w-full text-sm
+    }
+
+    .forget{
+        @apply text-base font-bold text-right text-dark-blue cursor-pointer
+    }
+
+    .modal-content{
+        @apply flex flex-col gap-5;
+    }
+    .modal-button{
+        @apply flex gap-3 text-center items-center justify-center bg-light-gray text-white font-bold rounded-md p-2 text-sm w-full;
+    }
+
+    .modal-button:hover{
+        @apply bg-dark-blue;
+    }
+    /* Register */
+    .register-container{
+        @apply flex flex-col gap-5;
+    }
+
+    .modal-register{
+        @apply flex gap-5 flex-col
+    }
+    .modal-login{
+        @apply flex flex-row items-center text-center justify-evenly;
+    }
+    .akun{
+        @apply text-base text-center
+    }
+
+    .masuk{
+        @apply text-base font-bold text-dark-blue cursor-pointer
+    }
+
+    .approve{
+        @apply flex items-center text-justify
+    }
+
+    .daftar{
+        @apply text-sm pl-1 
+    }
     /* Categories */
     .title{
         @apply text-4xl font-bold text-dark-blue;
@@ -91,14 +174,102 @@
         @apply p-8;
     }
 
+    /* .swiper-container{
+        @apply px-3 flex-nowrap flex
+    } */
+
+    .detail-img{
+        @apply rounded-full w-80 h-80;
+    }
+
     .card-container{
-        @apply pl-10;
+        @apply border border-blue-gray rounded-xl ;
+    }
+
+    .card-list{
+        @apply p-3 flex gap-3 flex-col ;
+    }
+
+    .card-title{
+        @apply flex gap-2 flex-col 
+    }
+
+    .cate-title{
+        @apply px-2 bg-soft-pink text-yellow rounded-full w-max;
+    }
+
+    .card-price{
+        @apply flex justify-between  ;
+    }
+
+    .card-rate{
+        @apply flex items-center;
     }
     
 
+    .icon-star{
+        @apply text-star;
+    }
+    
+    /* Detail Product */
+    .show-detail {
+        @apply px-8 py-24;
+    }
+
+    .card-detail{
+        @apply flex justify-between gap-10 ;
+    }
+
+    .detail-list{
+        @apply p-3 flex gap-3 flex-col w-664;
+
+    }
+
+    .card-info{
+        @apply flex flex-col gap-5;
+    }
+
+    .count-container{
+        @apply border rounded-lg h-3/5 w-60 flex gap-3 flex-col p-3 
+    }
+
+    .product-price{
+        @apply flex justify-between text-4xl font-bold;
+    }
+
+    .product-title{
+        @apply text-xl font-semibold text-dark-blue;
+    }
+
+    .span-title{
+        @apply text-yellow text-base
+    }
+    .card-category{
+        @apply flex gap-3 flex-col text-dark-blue text-base;
+    }
+
+    .total{
+        @apply flex justify-between text-base font-semibold leading-6;
+    }
+
+    .value{
+        @apply w-2/4 flex text-center;
+    }
+    .count{
+        @apply flex border rounded-lg px-2 py-1;
+    }
+
+    .cart{
+        @apply flex gap-3 items-center justify-center bg-yellow text-white font-bold rounded-md py-2 text-sm;
+    }
+
+    .buy{
+        @apply flex gap-3 items-center justify-center text-yellow font-bold rounded-md py-2 text-sm border border-yellow;
+    }
+
     /* Products Page */
     .product-container {
-        @apply flex flex-row justify-between bg-white px-8 py-24 gap-10 h-screen;
+        @apply flex flex-row justify-between bg-white px-8 py-24 gap-10 ;
     }
 
     .data-filter{
@@ -112,6 +283,7 @@
     .brak-label{
         @apply mr-4;
     }
+
     .button-right {
         @apply w-10 h-10 flex items-center justify-center rounded-md bg-gray-100 hover:bg-gray-200;
     }

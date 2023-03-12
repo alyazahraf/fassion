@@ -2,10 +2,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import React from 'react';
 import 'swiper/css';
 import { Navigation, Pagination } from 'swiper';
-import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import 'swiper/css/bundle';
 import Card from '../assets/Card';
+import { AiFillStar } from 'react-icons/ai';
+import { NavLink } from 'react-router-dom'
+
 
 const Slider = () => {
     // const card = [
@@ -77,8 +80,23 @@ const Slider = () => {
     return (
         <div className='card'>
             <h1 className='title'>Latest Products</h1>
-            <div >
+            <div className='container'>
                 <Swiper
+                    breakpoints={{
+                        0: {
+                            slidesPerView: 2,
+                        },
+                        520: {
+                            slidesPerView: 3,
+                        },
+
+                        768: {
+                            slidesPerView: 4,
+                        },
+                        990: {
+                            slidesPerView: 5,
+                        },
+                    }}
                     modules={[Navigation, Pagination]}
                     spaceBetween={30}
                     slidesPerView={5}
@@ -86,39 +104,43 @@ const Slider = () => {
                     navigation
                     loop={true} x
                     pagination={{ clickable: true }}
-                    scrollbar={{ draggable: true }}
+                    // scrollbar={{ draggable: true }}
                     onSwiper={(swiper) => console.log(swiper)}
                     onSlideChange={() => console.log('slide change')}
                 >
+
                     <div className='swiper-container'>
                         {Card.map((slide, i) => (
                             <SwiperSlide>
-                                <div className="card-container">
-                                    <div className="card-img">
-                                        <img src={slide.cover} alt="" />
-                                    </div>
-                                    <div className="card-title">
-                                        <h3>{slide.title}</h3>
-                                    </div>
-                                    <div className="card-desc">
-                                        <p>{slide.desc}</p>
-                                    </div>
-                                    <div>
-                                        <div className="card-price">
-                                            <p>{slide.price}</p>
+                                <NavLink to={"/products/" + slide.id}>
+                                    <div className="card-container">
+                                        <div className="card-img">
+                                            <img src={slide.cover} alt="" />
                                         </div>
-                                        <div className="card-rate">
-                                            <p>{slide.rate}</p>
-                                        </div></div>
+                                        <div className='card-list'>
+                                            <div className="card-title">
+                                                <div className='cate-title'>
+                                                    <h3>{slide.title}</h3>
+                                                </div>
+                                                <p>{slide.desc}</p>
+                                            </div>
+                                            <div className='card-price'>
+                                                <p>{slide.price}</p>
+                                                <div className="card-rate">
+                                                    <AiFillStar className='icon-star' />
+                                                    <p>{slide.rate}</p>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                </div>
-
+                                    </div>
+                                </NavLink>
                             </SwiperSlide>
                         ))}
                     </div>
                 </Swiper>
             </div>
-        </div>
+        </div >
     )
 }
 
