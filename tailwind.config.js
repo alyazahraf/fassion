@@ -9,8 +9,9 @@ module.exports = {
         'dark-blue': "#334155",
         'yellow': '#E1C076',
         'gray-border': '#94A3B8',
-        'blue-gray': '#94A3B8',
-        'light-gray': '#94A3B8',
+        'blue-gray': '#93989F',
+        'light-gray': '#D3D5DA',
+
         'soft-pink': '#F9F2E4',
         'star': ' #FFB340',
       },

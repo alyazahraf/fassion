@@ -1,7 +1,7 @@
 const Card = [
     {
         id: 1,
-        title: "face & skin care",
+        title: "Face & Skin Care",
         cover: "https://editorial.femaledaily.com/wp-content/uploads/2022/07/skintific-6.png",
         category: "skincare",
         desc: "Xxxxxxxxx",
@@ -10,7 +10,7 @@ const Card = [
     },
     {
         id: 2,
-        title: "baby care",
+        title: "Baby care",
         cover: "https://editorial.femaledaily.com/wp-content/uploads/2022/07/skintific-6.png",
         category: "skincare",
         desc: "Xxxxxxxxx",
@@ -19,7 +19,7 @@ const Card = [
     },
     {
         id: 3,
-        title: "beauty care",
+        title: "Beauty Care",
         cover: "https://editorial.femaledaily.com/wp-content/uploads/2022/07/skintific-6.png",
         category: "skincare",
         desc: "Xxxxxxxxx",
@@ -28,7 +28,7 @@ const Card = [
     },
     {
         id: 4,
-        title: "contraceptive",
+        title: "Contraceptive",
         cover: "https://editorial.femaledaily.com/wp-content/uploads/2022/07/skintific-6.png",
         category: "skincare",
         desc: "Xxxxxxxxx",
@@ -37,7 +37,7 @@ const Card = [
     },
     {
         id: 5,
-        title: "feminine hygiene",
+        title: "Feminine Hygiene",
         cover: "https://editorial.femaledaily.com/wp-content/uploads/2022/07/skintific-6.png",
         category: "skincare",
         desc: "Xxxxxxxxx",
@@ -46,7 +46,7 @@ const Card = [
     },
     {
         id: 6,
-        title: "health & protein",
+        title: "Health & Protein",
         cover: "https://editorial.femaledaily.com/wp-content/uploads/2022/07/skintific-6.png",
         category: "skincare",
         desc: "Xxxxxxxxx",
@@ -55,7 +55,7 @@ const Card = [
     },
     {
         id: 7,
-        title: "health & wellness",
+        title: "Health & Wellness",
         cover: "https://editorial.femaledaily.com/wp-content/uploads/2022/07/skintific-6.png",
         category: "skincare",
         desc: "Xxxxxxxxx",

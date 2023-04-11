@@ -78,69 +78,75 @@ const Slider = () => {
     // ]
 
     return (
-        <div className='card'>
-            <h1 className='title'>Latest Products</h1>
-            <div className='container'>
-                <Swiper
-                    breakpoints={{
-                        0: {
-                            slidesPerView: 2,
-                        },
-                        520: {
-                            slidesPerView: 3,
-                        },
+        <>
+            <div className='card' >
+                <h1 className='title'>Latest Products</h1>
+                <div className='container swiper mySwiper'>
+                    <Swiper
+                        breakpoints={{
+                            0: {
+                                slidesPerView: 2,
+                            },
+                            520: {
+                                slidesPerView: 3,
+                            },
 
-                        768: {
-                            slidesPerView: 4,
-                        },
-                        990: {
-                            slidesPerView: 5,
-                        },
-                    }}
-                    modules={[Navigation, Pagination]}
-                    spaceBetween={30}
-                    slidesPerView={5}
-                    slidesPerGroup
-                    navigation
-                    loop={true} x
-                    pagination={{ clickable: true }}
-                    // scrollbar={{ draggable: true }}
-                    onSwiper={(swiper) => console.log(swiper)}
-                    onSlideChange={() => console.log('slide change')}
-                >
+                            768: {
+                                slidesPerView: 4,
+                            },
+                            990: {
+                                slidesPerView: 5,
+                            },
+                        }}
+                        modules={[Navigation, Pagination]}
+                        spaceBetween={30}
+                        slidesPerView={5}
+                        slidesPerGroup
+                        navigation
+                        loop={true} x
+                        pagination={{ clickable: true }}
+                        // scrollbar={{ draggable: true }}
+                        onSwiper={(swiper) => console.log(swiper)}
+                        onSlideChange={() => console.log('slide change')}
+                    >
 
-                    <div className='swiper-container'>
-                        {Card.map((slide, i) => (
-                            <SwiperSlide>
-                                <NavLink to={"/products/" + slide.id}>
-                                    <div className="card-container">
-                                        <div className="card-img">
-                                            <img src={slide.cover} alt="" />
-                                        </div>
-                                        <div className='card-list'>
-                                            <div className="card-title">
-                                                <div className='cate-title'>
-                                                    <h3>{slide.title}</h3>
-                                                </div>
-                                                <p>{slide.desc}</p>
+                        <div className='swiper-container swiper-wrapper'>
+                            {Card.map((slide, i) => (
+                                <SwiperSlide>
+                                    <NavLink to={"/products/" + slide.id}>
+                                        <div className="card-container">
+                                            <div className="card-img">
+                                                <img src={slide.cover} alt="" />
                                             </div>
-                                            <div className='card-price'>
-                                                <p>{slide.price}</p>
-                                                <div className="card-rate">
-                                                    <AiFillStar className='icon-star' />
-                                                    <p>{slide.rate}</p>
+                                            <div className='card-list'>
+                                                <div className="card-title">
+                                                    <div className='cate-title'>
+                                                        <h3>{slide.title}</h3>
+                                                    </div>
+                                                    <p>{slide.desc}</p>
+                                                </div>
+                                                <div className='card-price'>
+                                                    <p>{slide.price}</p>
+                                                    <div className="card-rate">
+                                                        <AiFillStar className='icon-star' />
+                                                        <p>{slide.rate}</p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
 
-                                    </div>
-                                </NavLink>
-                            </SwiperSlide>
-                        ))}
-                    </div>
-                </Swiper>
-            </div>
-        </div >
+                                        </div>
+                                    </NavLink>
+                                </SwiperSlide>
+                            ))}
+                        </div>
+                    </Swiper>
+                    {/* <div className='swiper-button-next'></div>
+                    <div className='swiper-button-prev'></div> */}
+                </div>
+            </div >
+
+            <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        </>
     )
 }
 

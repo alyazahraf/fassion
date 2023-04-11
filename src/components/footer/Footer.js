@@ -12,7 +12,7 @@ const Footer = () => {
                     <h3>Jl. xxx Kel. xxx Kec. xxx </h3>
                     <h3>Semarang, Jawa Tengah</h3>
                     <div className="telp">
-                        <AiFillPhone />
+                        <AiFillPhone className="icon-footer" />
                         <h3>088121821389</h3>
                     </div>
                 </div>
@@ -29,7 +29,7 @@ const Footer = () => {
 
             </div>
             <div className="collab">
-                <h3 className="collabs"><FaGithub />alyazahraf collaborated with <FaGithub /> adiviaka</h3>
+                <h3 className="collabs"><FaGithub className="icon-collab"/>alyazahraf collaborated with <FaGithub className="icon-collab"/> adiviaka</h3>
             </div>
         </footer>
     )

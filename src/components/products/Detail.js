@@ -89,7 +89,7 @@ const Detail = () => {
                     </div>
                     <div className='card-info'>
                         <p className='product-price'>{product.price}</p>
-                        <hr />
+                        <p className='border' />
                         <div className='card-category'>
                             <h3>Categories: <span className='span-title'>{product.title}</span></h3>
                             <div>
@@ -109,7 +109,7 @@ const Detail = () => {
                     </div>
                     <div className='total'>
                         <h3>Subtotal</h3>
-                        <p>{product.price}</p>
+                        <h1>{product.price}</h1>
                     </div>
                     <div className='cart'>
                         <button>+ Add to Cart</button>

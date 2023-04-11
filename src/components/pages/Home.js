@@ -13,8 +13,7 @@ const Home = (props) => {
                     <div className='logo-img'>
                         <img src="fassion.jpg"></img>
                     </div>
-                    {props.isLoginOpen ? <Login setIsLoginOpen={props.setIsLoginOpen} /> : ""}
-                    {props.isRegisterOpen ? <Register setIsRegisterOpen={props.setIsRegisterOpen} /> : ""}
+
                     <Categories />
                     <Slider />
                 </div>

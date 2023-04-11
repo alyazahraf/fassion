@@ -1,40 +1,44 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { MdOutlineClose } from 'react-icons/md'
 import '../../App.css'
-
-// const Navbar = ({ setIsOpen }) => (
-//     <nav className="navbar">
-//         <button className="material-symbols-outlined">home</button>
-//         <button className="material-symbols-outlined">settings</button>
-//         <button className="material-symbols-outlined">build</button>
-//         <button
-//             onClick={() => setIsOpen(true)}
-//             className="material-symbols-outlined"
-//         >
-//             more_vert
-//         </button>
-//     </nav>
-// );
-
-// const Overlay = ({ isOpen, setIsOpen }) => (
-//     <div
-//         onClick={() => setIsOpen(false)}
-//         className={`overlay ${isOpen ? "open" : ""}`}
-//     />
-// );
-
-// const Modal = ({ isOpen }) => (
-//     <div className={`modal ${isOpen ? "open" : ""}`}>
-//         <h2>Side modal</h2>
-//         <p>I am some text inside.</p>
-//     </div>
-// );
+import Home from '../pages/Home'
+import { useNavigate } from "react-router-dom";
+import axios from 'axios'
 
 const Login = (props) => {
+    const navigate = useNavigate();
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const handleEmail = (e) => {
+        setEmail(e.target.value)
+    }
+
+    const handlePassword = (e) => {
+        setPassword(e.target.value)
+    }
+
+    const handleSubmit = () => {
+        console.log({ email, password })
+        axios.post('http://127.0.0.1:8000/api/login', {
+            email: email,
+            password: password
+        })
+            .then(result => {
+                console.log(result.data)
+                alert('Login Success')
+                navigate('/')
+                props.userAuth()
+            })
+            .catch(error => {
+                alert('Login Failed')
+                console.log(error)
+            })
+    }
 
     return (
-        <>
+        <div>
             <div className='overlay bg-black fixed opacity-50 top-0 bottom-0 left-0 right-0 z-10' onClick={() => { props.setIsLoginOpen(false) }}>
 
             </div>
@@ -42,37 +46,35 @@ const Login = (props) => {
                 <div className='modal-container'>
                     <MdOutlineClose className='cancel' onClick={() => { props.setIsLoginOpen(false) }} />
                     <div className='modal-header'>
-                        <h1 className='modal-title'>Masuk</h1>
-                        <a className='nav-href'>Daftar</a>
+                        <h1 className='modal-title'>Login</h1>
+                        <span onClick={
+                            () => {
+                                props.setIsLoginOpen(false)
+                                props.setIsRegisterOpen(true)
+                                // userAuth = { userAuth }
+                            }
+                        } className='nav-href'>Register</span>
                     </div>
                     <div className='modal-content'>
                         <div>
                             <p className='modal-input'>Email</p>
-                            <input type="text" className='input' placeholder="email@fassion.com" />
+                            <input type="text" value={email} onChange={handleEmail} className='input' placeholder="email@fassion.com" required />
                         </div>
                         <div>
                             <p className='modal-input'>Password</p>
-                            <input className='input' type="text" />
+                            <input className='input' value={password} onChange={handlePassword} type="password" required />
                         </div>
                         <div className=''>
-                            <p className='forget'>Lupa kata sandi?</p>
+                            <p className='forget'>Forget Password?</p>
                         </div>
-                        <button className='modal-button'>Masuk</button>
+                        <button type='submit' className='modal-button' onClick={handleSubmit}>Login</button>
 
                     </div>
                 </div>
 
             </div>
-
-        </>
+        </div >
     )
-    // return (
-    //     <>
-    //         <Navbar setIsOpen={setIsOpen} />
-    //         <Overlay isOpen={isOpen} setIsOpen={setIsOpen} />
-    //         <Modal isOpen={isOpen} />
-    //     </>
-    // );
 }
 
 export default Login

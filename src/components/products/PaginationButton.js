@@ -8,7 +8,7 @@ const PaginationButton = () => {
             <ReactPaginate
                 breakLabel={<span className='break-label'>...</span>}
                 nextLabel={
-                    <span className='button-right'>
+                    <span className='button-page'>
                         <BsChevronRight />
                     </span>
                 }
@@ -16,7 +16,7 @@ const PaginationButton = () => {
                 pageRangeDisplayed={5}
                 pageCount={50}
                 previousLabel={
-                    <span className='button-left'>
+                    <span className='button-page'>
                         <BsChevronLeft />
                     </span>
                 }
