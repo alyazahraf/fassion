@@ -114,11 +114,11 @@ const Slider = () => {
                             {Card.map((slide, i) => (
                                 <SwiperSlide>
                                     <NavLink to={"/products/" + slide.id}>
-                                        <div className="card-container">
-                                            <div className="card-img">
+                                        <div className="card-container overflow-hidden">
+                                            <div className="card-img ">
                                                 <img src={slide.cover} alt="" />
                                             </div>
-                                            <div className='card-list'>
+                                            <div className='card-list h-auto'>
                                                 <div className="card-title">
                                                     <div className='cate-title'>
                                                         <h3>{slide.title}</h3>

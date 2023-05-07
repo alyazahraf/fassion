@@ -9,9 +9,9 @@ import Footer from './components/footer/Footer';
 import Profile from './components/profile/Profile';
 import Store from './components/pages/Store';
 import Address from './components/profile/Address';
-// import AuthContext from './components/authentication/Auth-context';
 import NewAddress from './components/profile/New-address';
 import Cart from './components/pages/Cart';
+import { AuthProvider } from './components/context/AuthContext';
 
 function App() {
   const [isLoginOpen, setIsLoginOpen] = React.useState(false);

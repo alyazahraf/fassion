@@ -15,6 +15,15 @@ const Register = (props) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [c_password, setC_password] = useState('')
+    const [isError, setIsError] = useState(false)
+
+    const checkValidation = (e) => {
+        setC_password(e.target.value)
+        if (password !== e.target.value) {
+            setIsError("Confirm Password should be match with Password")
+        } else
+            setIsError("")
+    }
 
     const handleSubmit = () => {
         console.log({ first_name, last_name, birthdate, gender, contact, email, password, c_password })
@@ -107,7 +116,8 @@ const Register = (props) => {
                         <div>
                             <p className='modal-input'>Confirm Password</p>
                             <input className='input' type="password" value={c_password} onChange={(e) =>
-                                setC_password(e.target.value)} required />
+                                checkValidation(e)} required />
+                            {isError && <p className='text-red-500'>{isError}</p>}
                         </div>
                         <div className='approve'>
                             <input type='checkbox' required />

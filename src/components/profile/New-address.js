@@ -3,13 +3,13 @@ import React from 'react'
 const NewAddress = () => {
     return (
         <div className='px-8 py-24 lg:top-10 lg:px-36 lg:py-24 bg-light-gray'>
-            <div className='lg:px-24 py-10  gap-12 flex flex-col border rounded-xl border-blue-gray bg-white'>
+            <div className='px-12 lg:px-24 py-10  gap-12 flex flex-col border rounded-xl border-blue-gray bg-white'>
                 <div className=''>
                     <h1 className='text-xl text-dark-blue pb-2'>New Address</h1>
                 </div>
-                <div className='flex gap-9 flex-col'>
+                <div className='flex gap-5 lg:gap-9 flex-col'>
                     <div className='address-input'>
-                        <input className='input text-input' type="text" placeholder='First Name' />
+                        <input className='input text-input ' type="text" placeholder='First Name' />
                         <div>
                             <input className='input text-input' type="text" placeholder='Last Name' />
                         </div>
@@ -33,7 +33,7 @@ const NewAddress = () => {
                         </div>
                     </div>
                     <div className='address-input '>
-                        <input className='input text-input w-screen' type="text" placeholder='Street name, street sign, and house number' />
+                        <input className='input text-input lg:w-screen' type="text" placeholder='Street name, street sign, and house number' />
                     </div>
 
                 </div>

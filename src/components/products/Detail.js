@@ -1,4 +1,4 @@
-import { paste } from '@testing-library/user-event/dist/paste';
+// import { paste } from '@testing-library/user-event/dist/paste';
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import Card from '../assets/Card'
@@ -29,6 +29,20 @@ const Detail = () => {
     //     </div>)
 
 
+    const [num, setNum] = useState(0);
+
+    const addNum = () => {
+        setNum(num + 1)
+    }
+
+    const subNum = () => {
+        if (num > 0) {
+            setNum(num - 1)
+        }
+        else {
+            setNum(0)
+        }
+    }
 
     const { id } = useParams();
     const [product, setProduct] = useState({ id: null, title: null, cover: null, category: null, desc: null, price: null, rate: null })
@@ -102,9 +116,9 @@ const Detail = () => {
                     <div className='total'>
                         <h3>Count</h3>
                         <div className='count'>
-                            <button>-</button>
-                            <input type="text" value='0' className='value' />
-                            <button>+</button>
+                            <button onClick={subNum}>-</button>
+                            <a className='value w-12 justify-around'>{num}</a>
+                            <button onClick={addNum}>+</button>
                         </div>
                     </div>
                     <div className='total'>
@@ -114,7 +128,7 @@ const Detail = () => {
                     <div className='cart'>
                         <button>+ Add to Cart</button>
                     </div>
-                    <div className='buy'>
+                    <div className='cart'>
                         <button>Buy</button>
                     </div>
                 </div>

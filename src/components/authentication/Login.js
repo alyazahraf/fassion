@@ -5,6 +5,7 @@ import '../../App.css'
 import Home from '../pages/Home'
 import { useNavigate } from "react-router-dom";
 import axios from 'axios'
+import { useAuth } from '../context/AuthContext'
 
 const Login = (props) => {
     const navigate = useNavigate();
@@ -19,17 +20,19 @@ const Login = (props) => {
         setPassword(e.target.value)
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault()
         console.log({ email, password })
         axios.post('http://127.0.0.1:8000/api/login', {
             email: email,
             password: password
         })
             .then(result => {
-                console.log(result.data)
+                console.log(result.data.content)
                 alert('Login Success')
                 navigate('/')
-                props.userAuth()
+                localStorage.setItem('access_token', result.data.content.access_token)
+                localStorage.setItem('user', JSON.stringify(result.data.content.user))
             })
             .catch(error => {
                 alert('Login Failed')
@@ -55,7 +58,7 @@ const Login = (props) => {
                             }
                         } className='nav-href'>Register</span>
                     </div>
-                    <div className='modal-content'>
+                    <form onSubmit={handleSubmit} className='modal-content'>
                         <div>
                             <p className='modal-input'>Email</p>
                             <input type="text" value={email} onChange={handleEmail} className='input' placeholder="email@fassion.com" required />
@@ -67,9 +70,9 @@ const Login = (props) => {
                         <div className=''>
                             <p className='forget'>Forget Password?</p>
                         </div>
-                        <button type='submit' className='modal-button' onClick={handleSubmit}>Login</button>
+                        <button data-bs-dismiss="modal" type='submit' className='modal-button' >Login</button>
 
-                    </div>
+                    </form>
                 </div>
 
             </div>

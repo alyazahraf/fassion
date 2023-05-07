@@ -4,22 +4,26 @@ import { useState } from 'react'
 
 
 const Store = () => {
-    const [store_name, setStore_name] = useState('')
+    const [name, setName] = useState('')
     const [logo, setLogo] = useState('')
     const [address, setAddress] = useState('')
     const [contact, setContact] = useState('')
     const [description, setDescription] = useState('')
-    const [virtual_account, setVirtual_account] = useState('')
+    const [VA, setVA] = useState('')
 
     const handleSubmit = () => {
-        console.log({ store_name, logo, address, contact, description, virtual_account })
+        console.log({ name, logo, address, contact, description, VA })
         axios.post('http://127.0.0.1:8000/api/openStore', {
-            store_name: store_name,
+            name: name,
             logo: logo,
             address: address,
             contact: contact,
             description: description,
-            virtual_account: virtual_account
+            VA: VA
+        }, {
+            headers: {
+                Authorization: "Bearer " + localStorage.getItem('access_token')
+            }
         })
             .then(result => {
                 console.log(result.data)
@@ -42,8 +46,8 @@ const Store = () => {
                 <div className='profile-item-list'>
                     <div className='profile-input'>
                         <h3 className='list-input'>Store Name</h3>
-                        <input className='input text-input' type="text" value={store_name} onChange={(e) =>
-                            setStore_name(e.target.value)} required />
+                        <input className='input text-input' type="text" value={name} onChange={(e) =>
+                            setName(e.target.value)} required />
                     </div>
                     <div className='flex flex-row gap-80  items-center'>
                         <h3 className='list-input'>Logo</h3>
@@ -66,7 +70,7 @@ const Store = () => {
                     </div>
                     <div className='profile-input'>
                         <h3 className='list-input'>Virtual Account</h3>
-                        <input className='input text-input' type="number" value={virtual_account} onChange={(e) => setVirtual_account(e.target.value)} />
+                        <input className='input text-input' type="number" value={VA} onChange={(e) => setVA(e.target.value)} />
                     </div>
                 </div>
                 <div className='flex justify-end pr-10'>

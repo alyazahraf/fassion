@@ -3,8 +3,10 @@ import { HiOutlinePencil } from 'react-icons/hi'
 import { AiOutlineUser } from 'react-icons/ai'
 import { BsCartCheck, BsFillCaretDownFill } from 'react-icons/bs'
 import { useNavigate } from "react-router-dom";
+import { useAuth } from '../context/AuthContext'
 
 const Profile = (props) => {
+
     const navigate = useNavigate();
     const [profileList, setProfileList] = React.useState(false)
 
@@ -45,8 +47,8 @@ const Profile = (props) => {
                         <BsFillCaretDownFill className='text-dark-blue' />
                     </div>
                     {profileList && <div className='profile-list'>
-                        <h2 className='profile-account ' onClick={() => navigate("/profile")}>Profile</h2>
-                        <h2 className='profile-account ' onClick={() => navigate("/address")}>Address</h2>
+                        <h2 className='profile-account pl-0' onClick={() => navigate("/profile")}>Profile</h2>
+                        <h2 className='profile-account pl-0' onClick={() => navigate("/address")}>Address</h2>
                     </div>}
                     <div className='profile-edit'>
                         <BsCartCheck className='text-dark-blue' />
